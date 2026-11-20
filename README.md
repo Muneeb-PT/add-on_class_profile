@@ -1,141 +1,75 @@
 # Aesthetix Edu-Tech — 5-Day Front-End Web Development Training
 
-A learning repository for the **Aesthetix Edu-Tech 5-Day Intensive Training Program on Front-End Web Development**, conducted for students of **KMEA Engineering College**.
+A beginner front-end learning repository for the **Aesthetix Edu-Tech 5-Day Intensive Training Program on Front-End Web Development**, conducted for students of **KMEA Engineering College**.
 
-The programme is designed to introduce beginners to front-end development through concept explanations, live coding, hands-on practice, mini assignments, and assessment. This repository records the website built and the concepts practised during the programme.
+This repository contains practical implementations mapped to all five days of the programme using plain HTML, CSS and JavaScript. It includes a personal portfolio, resume exercise, calculator, form validation and interactive to-do mini project.
 
-## Programme Overview
+## Programme overview
 
 | Detail | Information |
 |---|---|
 | Training provider | Aesthetix Edu-Tech |
-| Programme | 5-Day Intensive Training Program on Front-End Web Development |
 | Institution | KMEA Engineering College, Ernakulam |
 | Duration | 5 days |
 | Stated total training hours | 30 hours |
-| Target audience | Semester 2 engineering students and beginners |
 | Core technologies | HTML, CSS, JavaScript |
 
-## Objective
+## Five-day syllabus and practical implementation
 
-To build foundational front-end web development skills and enable students to design and develop responsive, interactive websites using HTML, CSS, and JavaScript.
+### Day 1 — Introduction to the Web & HTML fundamentals
+**Topics:** client–server basics, HTML document structure, headings, paragraphs, links, images, lists, tables, forms, input elements and semantic HTML.
 
-## Expected Learning Outcomes
+**Practical work:** personal profile portfolio (index.html) and resume-style page (resume.html), using semantic sections, navigation, links, images and structured content.
 
-By the end of the programme, students are expected to be able to:
+### Day 2 — CSS fundamentals & styling
+**Topics:** inline, internal and external CSS, selectors, properties, colours, fonts, text styling, box model and backgrounds.
 
-- Structure web pages using HTML.
-- Style pages and create responsive layouts using CSS.
-- Add interactivity with JavaScript.
-- Build a complete responsive website.
-- Apply basic front-end development and UI/UX practices.
+**Practical work:** shared external stylesheet (styles.css), typography, colours, spacing, borders, backgrounds and styled information cards.
 
-## Official Five-Day Syllabus
+### Day 3 — Layout & responsive design
+**Topics:** Flexbox, CSS Grid, positioning, media queries, responsive principles and mobile-first design.
 
-### Day 1 — Introduction to the Web & HTML Fundamentals
+**Practical work:** flexible layouts, responsive card grids, two-column sections, mobile breakpoints and collapsible navigation across the pages.
 
-**Topics**
-- How the web works: client–server basics
-- Introduction to HTML and HTML document structure
-- Headings, paragraphs, links, and images
-- Lists and tables
-- Forms and input elements
-- Semantic HTML
+### Day 4 — JavaScript basics & DOM
+**Topics:** variables, data types, operators, conditions, loops, functions, DOM and event handling.
 
-**Hands-on activities**
-- Create a personal profile webpage.
-- Mini task: design a simple resume page.
+**Practical work:** calculator (calculator.html) with arithmetic operations, clear and backspace; client-side form validation; DOM updates and event listeners (script.js).
 
-**Repository progress:** The initial personal profile webpage is available in this repository. The page is being improved as the course progresses.
+### Day 5 — Mini project & deployment
+**Topics:** integrating HTML, CSS and JavaScript, debugging, basic UI/UX, and hosting introduction using GitHub Pages or Netlify.
 
-### Day 2 — CSS Fundamentals & Styling
+**Practical work:** responsive portfolio (index.html) and interactive to-do list (todo.html) with add, complete and delete actions. Browser localStorage retains tasks between visits.
 
-**Topics**
-- Introduction to CSS
-- Inline, internal, and external CSS
-- Selectors and properties
-- Colours, fonts, and text styling
-- CSS box model: margin, border, and padding
-- Background styling
+## Project structure
 
-**Hands-on activities**
-- Style the resume page.
-- Build a styled card layout.
+```text
+add-on_class_profile/
+├── index.html        # Responsive personal portfolio
+├── resume.html       # Resume page and styled card exercise
+├── calculator.html   # Calculator and form validation
+├── todo.html         # Interactive to-do list mini project
+├── styles.css        # Shared responsive stylesheet
+├── script.js         # Navigation, calculator, validation and to-do logic
+├── my.jpeg           # Profile photograph
+└── README.md
+```
 
-**Repository progress:** To be recorded after the class and practical work.
-
-### Day 3 — Layout & Responsive Design
-
-**Topics**
-- Flexbox
-- CSS Grid basics
-- Positioning: relative, absolute, and fixed
-- Media queries
-- Responsive web design principles
-- Introduction to mobile-first design
-
-**Hands-on activities**
-- Create a responsive navigation bar.
-- Convert a static page into a responsive layout.
-
-**Repository progress:** To be recorded after the class and practical work.
-
-### Day 4 — JavaScript Basics & DOM
-
-**Topics**
-- Introduction to JavaScript
-- Variables and data types
-- Operators and conditional statements
-- Loops and functions
-- Introduction to the Document Object Model (DOM)
-- Event handling
-
-**Hands-on activities**
-- Build a simple calculator.
-- Create a form validation script.
-
-**Repository progress:** To be recorded after the class and practical work.
-
-### Day 5 — Mini Project & Deployment
-
-**Topics**
-- Integrating HTML, CSS, and JavaScript
-- Debugging basics
-- Basic UI/UX tips
-- Hosting basics: introduction to GitHub Pages or Netlify
-
-**Hands-on activities**
-- Build a responsive portfolio website.
-- Create an interactive to-do list application.
-
-**Final assessment**
-- Project evaluation
-- MCQ review test
-
-**Repository progress:** Final project, deployment details, and assessment reflection will be added after completion.
-
-## Learning Progress
-
-| Day | Main focus | Status |
-|---|---|---|
-| 1 | Web introduction and HTML fundamentals | Started — personal profile webpage created |
-| 2 | CSS fundamentals and styling | Pending |
-| 3 | Layout and responsive design | Pending |
-| 4 | JavaScript basics and DOM | Pending |
-| 5 | Mini project, deployment, and assessment | Pending |
-
-> The syllabus above reflects the programme notice. The progress section will be updated based on the actual sessions and work completed; planned topics are not presented as completed work.
-
-## Live Website
-
-[View the deployed profile webpage](https://muneeb-pt.github.io/add-on_class_profile/)
-
-## Run Locally
+## Run locally
 
 1. Clone or download this repository.
-2. Open the project folder in VS Code or another text editor.
-3. Open `index.html` in a modern web browser.
+2. Open the folder in VS Code or another editor.
+3. Open index.html in a modern browser.
+4. Use the navigation to visit the resume, calculator and to-do pages.
 
-## About This Repository
+No build tools, frameworks or package installation are required.
 
-This is a beginner-level course practice repository, not an advanced or production web application. The aim is to document the learning process, practise each topic independently, and build up to the final responsive website by the end of the five-day programme.
+## Live website
+
+[Open the portfolio on GitHub Pages](https://muneeb-pt.github.io/add-on_class_profile/)
+
+If a newly added page is not visible immediately, allow GitHub Pages a few minutes to publish the latest commit, then refresh the site.
+
+## Learning note
+
+The repository contains code implementations of practical tasks mapped to the official five-day syllabus. It is a beginner learning project, not a production application. The presence of an implementation documents the code in this repository; it should not be read as proof that every topic was taught or assessed in a classroom session. Use the examples to practise, modify the code and understand how each part works.
