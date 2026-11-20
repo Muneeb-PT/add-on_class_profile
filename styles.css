@@ -62,16 +62,21 @@ th{background:#e8f2f5;color:var(--brand-dark)}
 .calc-keys button:hover{background:var(--accent)}
 .calc-keys .operator{background:#e8f2f5;color:var(--brand-dark)}
 .calc-keys .equals{background:var(--brand);color:white}
+.todo-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}
+.todo-heading h2{margin-bottom:4px}
+.todo-heading p{margin:0}
 .todo-form{display:flex;gap:10px}
-.todo-form input{flex:1}
-.todo-list{padding:0;list-style:none}
+.todo-form input{flex:1;min-width:0}
+.todo-list{padding:0;list-style:none;margin:18px 0}
 .todo-item{display:flex;align-items:center;gap:12px;padding:13px 4px;border-bottom:1px solid var(--line)}
 .todo-item input{width:20px;height:20px;flex:0 0 auto}
 .todo-item span{flex:1;overflow-wrap:anywhere}
 .todo-item.done span{text-decoration:line-through;color:var(--muted)}
-.small-button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:7px 10px;cursor:pointer}
+.small-button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px 11px;cursor:pointer;color:var(--ink);font:inherit;font-weight:700}
+.small-button:hover{background:var(--accent)}
+#storage-status{margin:10px 0 0;font-size:.9rem}
 footer{padding:28px 0;background:#102a36;color:#e2e8f0}
 footer a{color:#b9f3e9}
 .footer-row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 @media(max-width:760px){.hero-grid{grid-template-columns:1fr;text-align:center}.hero-photo{grid-row:1;width:170px;height:170px}.actions{justify-content:center}.grid{grid-template-columns:1fr 1fr}.two-col{grid-template-columns:1fr}.nav-wrap{align-items:center;padding:14px 0}.menu-toggle{display:block}.nav-links{display:none;position:absolute;top:68px;left:0;right:0;padding:12px 18px;background:white;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch}.nav-links.open{display:flex}.nav-links a{border-radius:8px}}
-@media(max-width:520px){.grid,.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.section{padding:46px 0}.hero{padding:52px 0 42px}.todo-form{flex-direction:column}}
+@media(max-width:520px){.grid,.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.section{padding:46px 0}.hero{padding:52px 0 42px}.todo-form{flex-direction:column}.todo-heading{align-items:flex-start;flex-direction:column}}
