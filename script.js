@@ -1,12 +1,23 @@
-// Small vanilla JavaScript interactions used in the Day 4 and Day 5 exercises.
+// Vanilla JavaScript interactions for the Day 4 and Day 5 practical exercises.
 document.addEventListener("DOMContentLoaded", () => {
   const toggle = document.querySelector(".menu-toggle");
   const nav = document.querySelector(".nav-links");
+  const closeMenu = () => {
+    if (!toggle || !nav) return;
+    toggle.setAttribute("aria-expanded", "false");
+    nav.classList.remove("open");
+  };
   if (toggle && nav) {
     toggle.addEventListener("click", () => {
       const expanded = toggle.getAttribute("aria-expanded") === "true";
       toggle.setAttribute("aria-expanded", String(!expanded));
       nav.classList.toggle("open", !expanded);
+    });
+    nav.addEventListener("click", event => {
+      if (event.target.closest("a")) closeMenu();
+    });
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") closeMenu();
     });
   }
 
@@ -17,10 +28,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const name = form.elements.name.value.trim();
       const email = form.elements.email.value.trim();
       const message = form.elements.message.value.trim();
-      const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
       const errors = {
         name: name.length >= 2 ? "" : "Enter at least 2 characters.",
-        email: emailValid ? "" : "Enter a valid email address.",
+        email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? "" : "Enter a valid email address.",
         message: message.length >= 10 ? "" : "Message must contain at least 10 characters."
       };
       Object.entries(errors).forEach(([key, value]) => {
@@ -31,9 +41,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const status = form.querySelector(".status");
       if (Object.values(errors).some(Boolean)) {
         status.textContent = "Please correct the highlighted fields.";
+        const firstInvalid = form.querySelector('[aria-invalid="true"]');
+        if (firstInvalid) firstInvalid.focus();
       } else {
         status.textContent = "Form validated successfully. This demo does not send or store messages.";
         form.reset();
+        form.querySelectorAll("[aria-invalid]").forEach(field => field.removeAttribute("aria-invalid"));
       }
     });
   }
@@ -46,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
       button.addEventListener("click", () => {
         const value = button.dataset.calc;
         if (value === "clear") expression = "";
-        else if (value === "back") expression = expression.slice(0, -1);
+        else if (value === "back") expression = expression === "Error" ? "" : expression.slice(0, -1);
         else if (value === "equals") {
           if (!expression || !/^[0-9+*/().%\s-]+$/.test(expression)) {
             expression = "Error";
@@ -70,9 +83,23 @@ document.addEventListener("DOMContentLoaded", () => {
   if (todoForm && todoList) {
     const storageKey = "front-end-course-todos";
     let tasks = [];
-    try { tasks = JSON.parse(localStorage.getItem(storageKey) || "[]"); }
-    catch { tasks = []; }
-    const save = () => localStorage.setItem(storageKey, JSON.stringify(tasks));
+    try {
+      const stored = JSON.parse(localStorage.getItem(storageKey) || "[]");
+      if (Array.isArray(stored)) tasks = stored.filter(task =>
+        task && typeof task.text === "string" && typeof task.done === "boolean"
+      );
+    } catch { tasks = []; }
+
+    const save = () => {
+      try {
+        localStorage.setItem(storageKey, JSON.stringify(tasks));
+        return true;
+      } catch {
+        const notice = document.querySelector("#storage-status");
+        if (notice) notice.textContent = "Browser storage is unavailable; tasks may not remain after refresh.";
+        return false;
+      }
+    };
     const render = () => {
       todoList.replaceChildren();
       if (!tasks.length) {
@@ -97,6 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
         remove.className = "small-button";
         remove.type = "button";
         remove.textContent = "Delete";
+        remove.setAttribute("aria-label", `Delete task: ${task.text}`);
         remove.addEventListener("click", () => {
           tasks = tasks.filter(entry => entry.id !== task.id); save(); render();
         });
@@ -109,7 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const input = todoForm.elements.task;
       const text = input.value.trim();
       if (!text) return;
-      tasks.push({id: Date.now(), text, done: false});
+      tasks.push({id: `${Date.now()}-${Math.random().toString(16).slice(2)}`, text, done: false});
       input.value = ""; save(); render(); input.focus();
     });
     render();
