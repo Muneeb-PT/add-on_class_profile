@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A beginner resume webpage built with semantic HTML and CSS.">
+  <title>Resume Practice | Front-End Training</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+<header class="site-header"><div class="container nav-wrap">
+  <a class="brand" href="index.html">Muneeb<span aria-hidden="true">.</span></a>
+  <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+  <nav class="nav-links" id="main-nav" aria-label="Main navigation">
+    <a href="index.html">Portfolio</a><a href="resume.html" aria-current="page">Resume</a><a href="calculator.html">Calculator</a><a href="todo.html">To-Do</a>
+  </nav>
+</div></header>
+<main class="container">
+  <section class="page-intro"><p class="eyebrow">Day 1 · HTML / Day 2 · CSS</p><h1>Resume Practice Page</h1><p class="lead">A simple resume-style document using semantic HTML, typography, spacing, colours and reusable cards.</p></section>
+  <section class="panel">
+    <h2>Mohammed Muneeb PT</h2>
+    <p class="lead">B.Tech Computer Science and Engineering student</p>
+    <p>Kerala, India · <a href="mailto:mohammedmuneebptcsa@gmail.com">Email</a> · <a href="https://www.linkedin.com/in/mohammed-muneeb-pt/" target="_blank" rel="noopener noreferrer">LinkedIn</a> · <a href="https://github.com/Muneeb-PT" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+    <hr>
+    <h3>Profile</h3><p>Computer Science student learning software development through coursework and practical projects. Interested in programming, web technologies and AI/ML.</p>
+    <div class="two-col">
+      <section><h3>Education</h3><ul class="info-list"><li><strong>KMEA Engineering College</strong><br>B.Tech, Computer Science and Engineering</li><li><strong>GMHSS Perinthalmanna</strong><br>Higher Secondary Education</li><li><strong>GHSS Pattikad</strong><br>Secondary Education</li></ul></section>
+      <section><h3>Current learning</h3><ul class="info-list"><li>HTML and semantic page structure</li><li>CSS styling and responsive layouts</li><li>JavaScript fundamentals and DOM</li></ul></section>
+    </div>
+    <h3>Practice projects</h3>
+    <ul class="info-list"><li>Personal profile webpage — HTML and CSS practice.</li><li>Calculator — JavaScript event handling practice.</li><li>To-do list — DOM manipulation and browser storage practice.</li></ul>
+    <p class="muted">This is a learning exercise, not a formal job application resume. Add verified experience and skills as they are gained.</p>
+  </section>
+  <section class="section"><div class="section-head"><p class="eyebrow">Day 2 exercise</p><h2>Styled information cards</h2><p>These cards demonstrate CSS selectors, spacing, borders, backgrounds and the box model.</p></div>
+    <div class="grid"><article class="card"><h3>Structure</h3><p>HTML elements organise the content into meaningful sections.</p></article><article class="card"><h3>Presentation</h3><p>CSS controls colour, typography, padding, borders and layout.</p></article><article class="card"><h3>Practice</h3><p>Small reusable components make a page easier to maintain.</p></article></div>
+  </section>
+</main>
+<footer><div class="container footer-row"><span>Front-End Web Development · Practice work</span><a href="index.html">Back to portfolio</a></div></footer>
+</body></html>
