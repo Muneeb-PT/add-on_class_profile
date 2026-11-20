@@ -1,151 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Personal profile website created during the KMEA five-day web development add-on course.">
-    <title>Mohammed Muneeb PT | Personal Profile</title>
-    <link rel="icon" href="my.jpeg" type="image/jpeg">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * { box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body {
-            margin: 0;
-            padding: 24px;
-            font-family: Arial, Helvetica, sans-serif;
-            color: #172033;
-            background: #e9edf7;
-            line-height: 1.6;
-        }
-        .page { width: min(100%, 900px); margin: 0 auto; }
-        .site-header {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 22px;
-        }
-        .site-header a {
-            padding: 10px 18px;
-            border-radius: 8px;
-            background: #087eae;
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .site-header a:hover, .site-header a:focus-visible { background: #075d82; }
-        .intro { text-align: center; margin: 0 0 22px; }
-        .intro h1 { margin-bottom: 6px; color: #101d42; }
-        .intro p { margin-top: 0; color: #526078; }
-        .profile-card {
-            overflow: hidden;
-            border: 1px solid #c9d2e5;
-            border-radius: 20px;
-            background: #101d42;
-            box-shadow: 0 12px 32px rgb(24 39 75 / 12%);
-        }
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 28px;
-            padding: 32px;
-            background: #805bd3;
-            color: #fff;
-        }
-        .hero h2 { margin-top: 0; font-size: clamp(1.5rem, 4vw, 2rem); }
-        .hero p { margin-bottom: 0; }
-        .profile-photo {
-            width: 150px;
-            height: 150px;
-            flex: 0 0 150px;
-            object-fit: cover;
-            border: 4px solid #fff;
-            border-radius: 50%;
-        }
-        .section-title { margin: 24px 0 12px; color: #fff; text-align: center; }
-        .details {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 16px;
-            padding: 0 24px 24px;
-        }
-        .info-card {
-            min-width: 0;
-            padding: 20px;
-            border-radius: 14px;
-            background: #d9eff8;
-        }
-        .info-card h3 { margin-top: 0; color: #252078; text-align: center; }
-        .info-card ul { padding-left: 20px; }
-        .info-card li { margin-bottom: 12px; }
-        .info-card a { color: #075d82; overflow-wrap: anywhere; }
-        footer { padding: 18px; color: #fff; text-align: center; }
-        footer p { margin: 0 0 12px; }
-        .social-links { display: flex; justify-content: center; gap: 22px; }
-        .social-links a { color: #fff; font-size: 1.35rem; }
-        .social-links a:hover, .social-links a:focus-visible { color: #9ce5ff; }
-        @media (max-width: 620px) {
-            body { padding: 14px; }
-            .hero { flex-direction: column-reverse; text-align: center; padding: 24px 18px; }
-            .details { grid-template-columns: 1fr; padding: 0 14px 18px; }
-            .info-card { padding: 16px; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A beginner front-end learning portfolio documenting HTML, CSS and JavaScript practical work.">
+  <title>Mohammed Muneeb PT | Front-End Learning Portfolio</title>
+  <link rel="icon" href="my.jpeg" type="image/jpeg">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-    <main class="page">
-        <nav class="site-header" aria-label="Main navigation">
-            <a href="#home">Home</a>
-            <a href="#education">Education</a>
-            <a href="#contact">Contact</a>
-        </nav>
-
-        <header class="intro" id="home">
-            <h1>My Personal Profile</h1>
-            <p>A simple profile webpage created while learning HTML and CSS.</p>
-        </header>
-
-        <article class="profile-card">
-            <section class="hero" aria-labelledby="profile-name">
-                <div>
-                    <h2 id="profile-name">Mohammed Muneeb PT</h2>
-                    <p><strong>B.Tech Computer Science and Engineering</strong><br>
-                    Aspiring Software Developer</p>
-                    <p>Interested in building practical software solutions and exploring data structures, web technologies, and real-world application development.</p>
-                </div>
-                <img class="profile-photo" src="my.jpeg" alt="Profile photograph of Mohammed Muneeb PT">
-            </section>
-
-            <h2 class="section-title">Profile Details</h2>
-            <div class="details">
-                <section class="info-card" id="education" aria-labelledby="education-title">
-                    <h3 id="education-title">Education</h3>
-                    <ul>
-                        <li><strong>KMEA Engineering College</strong><br>B.Tech Computer Science and Engineering</li>
-                        <li><strong>GMHSS Perinthalmanna</strong><br>Higher Secondary Education</li>
-                        <li><strong>GHSS Pattikad</strong><br>Secondary Education</li>
-                    </ul>
-                </section>
-
-                <section class="info-card" id="contact" aria-labelledby="contact-title">
-                    <h3 id="contact-title">Contact</h3>
-                    <p>Kerala, India</p>
-                    <p><a href="mailto:mohammedmuneebptcsa@gmail.com">mohammedmuneebptcsa@gmail.com</a></p>
-                    <p>Find me on the platforms linked below.</p>
-                </section>
-            </div>
-
-            <footer>
-                <p>&copy; 2026 Mohammed Muneeb PT. Created as a web development learning exercise.</p>
-                <div class="social-links" aria-label="Social profiles">
-                    <a href="https://www.linkedin.com/in/mohammed-muneeb-pt/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://github.com/Muneeb-PT" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://www.instagram.com/mohammed_muneeb_pt/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                </div>
-            </footer>
-        </article>
-    </main>
-</body>
-</html>
+<header class="site-header"><div class="container nav-wrap">
+  <a class="brand" href="index.html">Muneeb.</a>
+  <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+  <nav class="nav-links" id="main-nav" aria-label="Main navigation">
+    <a href="#about" aria-current="page">About</a><a href="#education">Education</a><a href="#work">Practice work</a><a href="#contact">Contact</a><a href="resume.html">Resume</a><a href="calculator.html">Calculator</a><a href="todo.html">To-Do</a>
+  </nav>
+</div></header>
+<main>
+<section class="hero" id="about"><div class="container hero-grid">
+  <div><p class="eyebrow">Front-End Web Development · Learning Portfolio</p><h1>Hi, I’m Mohammed Muneeb PT.</h1><p class="lead">A Computer Science student learning to build clear, responsive and interactive websites with HTML, CSS and JavaScript.</p><p>This site is the practical portfolio for the Aesthetix Edu-Tech five-day front-end training programme at KMEA Engineering College.</p>
+    <div class="actions"><a class="button" href="#work">Explore practical work</a><a class="button secondary" href="resume.html">View resume page</a></div>
+  </div><img class="hero-photo" src="my.jpeg" alt="Profile photograph of Mohammed Muneeb PT" width="220" height="220">
+</div></section>
+<section class="section" id="education"><div class="container"><div class="section-head"><p class="eyebrow">A little about me</p><h2>Education & interests</h2><p>My current focus is strengthening programming fundamentals and learning how web pages are structured, styled and made interactive.</p></div>
+<div class="two-col"><article class="card"><h3>Education</h3><ul class="info-list"><li><strong>KMEA Engineering College</strong><br>B.Tech Computer Science and Engineering</li><li><strong>GMHSS Perinthalmanna</strong><br>Higher Secondary Education</li><li><strong>GHSS Pattikad</strong><br>Secondary Education</li></ul></article><article class="card"><h3>Topics practised</h3><ul class="tag-list"><li>HTML5</li><li>Semantic HTML</li><li>CSS</li><li>Flexbox</li><li>CSS Grid</li><li>Responsive design</li><li>JavaScript</li><li>DOM</li><li>Form validation</li></ul><p class="muted">Topics represented in this course practice repository.</p></article></div></div></section>
+<section class="section" id="work" style="background:#edf2f7"><div class="container"><div class="section-head"><p class="eyebrow">Five-day practical work</p><h2>What I built</h2><p>Each page demonstrates beginner front-end concepts from the programme syllabus.</p></div>
+<div class="grid">
+<article class="card"><p class="eyebrow">Day 1 · HTML</p><h3>Personal profile</h3><p>Semantic structure, headings, links, images, navigation and content sections.</p><a href="#about">Explore this page ↑</a></article>
+<article class="card"><p class="eyebrow">Day 1–2 · HTML & CSS</p><h3>Resume & styled cards</h3><p>A resume-style document using typography, colour, spacing, borders and reusable card layouts.</p><a href="resume.html">Open resume page →</a></article>
+<article class="card"><p class="eyebrow">Day 3 · Responsive CSS</p><h3>Responsive navigation</h3><p>Flexbox, Grid, media queries and a collapsible navigation menu for smaller screens.</p><a href="#work">See navigation above ↑</a></article>
+<article class="card"><p class="eyebrow">Day 4 · JavaScript</p><h3>Calculator</h3><p>Button events, arithmetic operators, clear, backspace and result display.</p><a href="calculator.html">Open calculator →</a></article>
+<article class="card"><p class="eyebrow">Day 4 · DOM</p><h3>Form validation</h3><p>Client-side checks for name, email and message fields, with accessible feedback.</p><a href="calculator.html">Try form validation →</a></article>
+<article class="card"><p class="eyebrow">Day 5 · Mini project</p><h3>To-do list</h3><p>Add, complete and delete tasks. The list is saved in browser localStorage.</p><a href="todo.html">Open To-Do app →</a></article>
+</div></div></section>
+<section class="section" id="contact"><div class="container"><div class="section-head"><p class="eyebrow">Get in touch</p><h2>Find me online</h2><p>Connect through my public developer profiles.</p></div><div class="actions"><a class="button" href="mailto:mohammedmuneebptcsa@gmail.com">Email</a><a class="button secondary" href="https://www.linkedin.com/in/mohammed-muneeb-pt/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a class="button secondary" href="https://github.com/Muneeb-PT" target="_blank" rel="noopener noreferrer">GitHub</a><a class="button secondary" href="https://www.instagram.com/mohammed_muneeb_pt/" target="_blank" rel="noopener noreferrer">Instagram</a></div></div></section>
+</main>
+<footer><div class="container footer-row"><span>© 2026 Mohammed Muneeb PT · Built as a front-end learning project.</span><a href="https://github.com/Muneeb-PT/add-on_class_profile" target="_blank" rel="noopener noreferrer">Source code on GitHub</a></div></footer>
+</body></html>
