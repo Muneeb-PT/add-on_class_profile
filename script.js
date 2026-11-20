@@ -1,6 +1,6 @@
-// Shared JavaScript interactions for the five-day front-end training exercises.
+// JavaScript used by the navigation, calculator, form and to-do list.
 document.addEventListener("DOMContentLoaded", () => {
-  // Day 3: responsive navigation.
+  // Show and hide the navigation on small screens.
   const toggle = document.querySelector(".menu-toggle");
   const nav = document.querySelector(".nav-links");
   const closeMenu = () => {
@@ -8,11 +8,12 @@ document.addEventListener("DOMContentLoaded", () => {
     toggle.setAttribute("aria-expanded", "false");
     nav.classList.remove("open");
   };
+
   if (toggle && nav) {
     toggle.addEventListener("click", () => {
-      const expanded = toggle.getAttribute("aria-expanded") === "true";
-      toggle.setAttribute("aria-expanded", String(!expanded));
-      nav.classList.toggle("open", !expanded);
+      const isOpen = toggle.getAttribute("aria-expanded") === "true";
+      toggle.setAttribute("aria-expanded", String(!isOpen));
+      nav.classList.toggle("open", !isOpen);
     });
     nav.addEventListener("click", event => {
       if (event.target.closest("a")) closeMenu();
@@ -22,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Day 4: client-side form validation.
+  // Check the sample form. It does not send the entered details anywhere.
   const form = document.querySelector("#contact-form");
   if (form) {
     form.addEventListener("submit", event => {
@@ -32,23 +33,26 @@ document.addEventListener("DOMContentLoaded", () => {
         email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.elements.email.value.trim()) ? "" : "Enter a valid email address.",
         message: form.elements.message.value.trim().length >= 10 ? "" : "Message must contain at least 10 characters."
       };
+
       Object.entries(errors).forEach(([key, message]) => {
         const input = form.elements[key];
         const output = form.querySelector(`[data-error="${key}"]`);
         if (output) output.textContent = message;
         input.setAttribute("aria-invalid", String(Boolean(message)));
       });
+
       const status = form.querySelector(".status");
       const firstInvalid = Object.keys(errors).find(key => errors[key]);
       if (firstInvalid) {
-        status.textContent = "Please correct the highlighted fields.";
+        status.textContent = "Please check the fields marked above.";
         form.elements[firstInvalid].focus();
       } else {
-        status.textContent = "Form validated successfully. This demo does not send or store messages.";
+        status.textContent = "All fields look valid. This demo does not send the form.";
         form.reset();
         Object.keys(errors).forEach(key => form.elements[key].removeAttribute("aria-invalid"));
       }
     });
+
     form.addEventListener("input", event => {
       const key = event.target.name;
       const output = key && form.querySelector(`[data-error="${key}"]`);
@@ -59,15 +63,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Day 4: arithmetic parser (no eval or Function execution).
+  // Read and calculate an arithmetic expression without using eval().
   const display = document.querySelector("#calc-display");
   if (display) {
     let expression = "";
     const render = () => { display.value = expression || "0"; };
+
     const calculate = source => {
       const tokens = source.match(/\d+(?:\.\d+)?|[()+\-*/%]/g) || [];
       if (!tokens.length || tokens.join("") !== source.replace(/\s/g, "")) throw new Error("Invalid expression");
       let index = 0;
+
       const primary = () => {
         const token = tokens[index++];
         if (token === "+" || token === "-") {
@@ -82,6 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!token || !/^\d/.test(token)) throw new Error("Expected a number");
         return Number(token);
       };
+
       const product = () => {
         let value = primary();
         while (["*", "/", "%"].includes(tokens[index])) {
@@ -92,6 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         return value;
       };
+
       const sum = () => {
         let value = product();
         while (tokens[index] === "+" || tokens[index] === "-") {
@@ -101,10 +109,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         return value;
       };
+
       const result = sum();
       if (index !== tokens.length || !Number.isFinite(result)) throw new Error("Invalid expression");
       return Number(result.toFixed(8)).toString();
     };
+
     const press = value => {
       if (value === "clear") expression = "";
       else if (value === "back") expression = expression === "Error" ? "" : expression.slice(0, -1);
@@ -117,89 +127,125 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       render();
     };
+
     document.querySelectorAll("[data-calc]").forEach(button => {
       button.addEventListener("click", () => press(button.dataset.calc));
     });
+
     document.addEventListener("keydown", event => {
       if (/^[0-9()+\-*/%]$/.test(event.key)) {
-        event.preventDefault(); press(event.key);
+        event.preventDefault();
+        press(event.key);
       } else if (event.key === "Enter" || event.key === "=") {
-        event.preventDefault(); press("equals");
+        event.preventDefault();
+        press("equals");
       } else if (event.key === "Backspace") {
-        event.preventDefault(); press("back");
-      } else if (event.key === "Escape") press("clear");
+        event.preventDefault();
+        press("back");
+      } else if (event.key === "Escape") {
+        press("clear");
+      }
     });
   }
 
-  // Day 5: to-do app with localStorage persistence.
+  // Keep the to-do list in this browser when localStorage is available.
   const todoForm = document.querySelector("#todo-form");
   const todoList = document.querySelector("#todo-list");
   if (todoForm && todoList) {
     const storageKey = "front-end-course-todos";
     let tasks = [];
+
     try {
       const stored = JSON.parse(localStorage.getItem(storageKey) || "[]");
-      if (Array.isArray(stored)) tasks = stored.filter(task =>
-        task && (typeof task.id === "string" || typeof task.id === "number") &&
-        typeof task.text === "string" && typeof task.done === "boolean"
-      );
-    } catch { tasks = []; }
+      if (Array.isArray(stored)) {
+        tasks = stored.filter(task =>
+          task && (typeof task.id === "string" || typeof task.id === "number") &&
+          typeof task.text === "string" && typeof task.done === "boolean"
+        );
+      }
+    } catch {
+      tasks = [];
+    }
+
     const save = () => {
+      const status = document.querySelector("#storage-status");
       try {
         localStorage.setItem(storageKey, JSON.stringify(tasks));
-        const status = document.querySelector("#storage-status");
         if (status) status.textContent = "Saved in this browser.";
       } catch {
-        const status = document.querySelector("#storage-status");
-        if (status) status.textContent = "Browser storage is unavailable; tasks may not persist.";
+        if (status) status.textContent = "Browser storage is unavailable. Tasks may not be saved.";
       }
     };
+
     const render = () => {
       todoList.replaceChildren();
       const count = document.querySelector("#task-count");
       if (count) count.textContent = `${tasks.filter(task => !task.done).length} remaining · ${tasks.length} total`;
+
       if (!tasks.length) {
         const empty = document.createElement("li");
         empty.className = "muted";
-        empty.textContent = "No tasks yet. Add your first task above.";
+        empty.textContent = "No tasks yet. Add one above.";
         todoList.append(empty);
       }
+
       tasks.forEach(task => {
         const item = document.createElement("li");
         item.className = `todo-item${task.done ? " done" : ""}`;
+
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.checked = task.done;
         checkbox.setAttribute("aria-label", `Mark ${task.text} as ${task.done ? "incomplete" : "complete"}`);
         checkbox.addEventListener("change", () => {
-          task.done = checkbox.checked; save(); render();
+          task.done = checkbox.checked;
+          save();
+          render();
         });
+
         const label = document.createElement("span");
         label.textContent = task.text;
+
         const remove = document.createElement("button");
         remove.className = "small-button";
         remove.type = "button";
         remove.textContent = "Delete";
         remove.setAttribute("aria-label", `Delete task: ${task.text}`);
         remove.addEventListener("click", () => {
-          tasks = tasks.filter(entry => entry.id !== task.id); save(); render();
+          tasks = tasks.filter(entry => entry.id !== task.id);
+          save();
+          render();
         });
+
         item.append(checkbox, label, remove);
         todoList.append(item);
       });
     };
+
     todoForm.addEventListener("submit", event => {
       event.preventDefault();
       const input = todoForm.elements.task;
-      const text = input.value.trim();
-      if (!text) { input.focus(); return; }
-      tasks.push({id: `${Date.now()}-${Math.random().toString(16).slice(2)}`, text, done: false});
-      input.value = ""; save(); render(); input.focus();
+      const taskText = input.value.trim();
+      if (!taskText) {
+        input.focus();
+        return;
+      }
+      tasks.push({ id: `${Date.now()}-${Math.random().toString(16).slice(2)}`, text: taskText, done: false });
+      input.value = "";
+      save();
+      render();
+      input.focus();
     });
+
     const clearCompleted = document.querySelector("#clear-completed");
-    if (clearCompleted) clearCompleted.addEventListener("click", () => {
-      tasks = tasks.filter(task => !task.done); save(); render();
-    });
+    if (clearCompleted) {
+      clearCompleted.addEventListener("click", () => {
+        tasks = tasks.filter(task => !task.done);
+        save();
+        render();
+      });
+    }
+
     render();
   }
 });
