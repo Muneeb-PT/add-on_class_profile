@@ -1,11 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="A JavaScript to-do list with browser local storage."><title>To-Do App | Front-End Training</title><link rel="stylesheet" href="styles.css"><script src="script.js" defer></script></head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A JavaScript to-do list with browser local storage.">
+  <title>To-Do App | Front-End Training</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
 <body>
-<header class="site-header"><div class="container nav-wrap"><a class="brand" href="index.html">Muneeb.</a><button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button><nav class="nav-links" id="main-nav" aria-label="Main navigation"><a href="index.html">Portfolio</a><a href="resume.html">Resume</a><a href="calculator.html">Calculator</a><a href="todo.html" aria-current="page">To-Do</a></nav></div></header>
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="index.html">Muneeb.</a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <nav class="nav-links" id="main-nav" aria-label="Main navigation">
+      <a href="index.html">Portfolio</a><a href="resume.html">Resume</a><a href="calculator.html">Calculator</a><a href="todo.html" aria-current="page">To-Do</a>
+    </nav>
+  </div>
+</header>
 <main class="container">
-<section class="page-intro"><p class="eyebrow">Day 5 · Mini project</p><h1>My To-Do List</h1><p class="lead">An interactive task list built with HTML, CSS and JavaScript. Tasks remain in this browser using localStorage when browser storage is available.</p></section>
-<section class="panel"><h2>Tasks</h2><form class="todo-form" id="todo-form"><label class="sr-only" for="task">New task</label><input id="task" name="task" type="text" maxlength="120" placeholder="Add a task..." required><button class="button" type="submit">Add task</button></form><p class="status" id="storage-status" role="status" aria-live="polite"></p><ul class="todo-list" id="todo-list" aria-live="polite"></ul><p class="muted">Tip: tick a task when it is complete. Delete tasks you no longer need. Data is stored only in this browser.</p></section>
+  <section class="page-intro">
+    <p class="eyebrow">Day 5 · Mini project</p>
+    <h1>My To-Do List</h1>
+    <p class="lead">An interactive task list built with HTML, CSS and JavaScript. Tasks remain in this browser using localStorage when browser storage is available.</p>
+  </section>
+  <section class="panel">
+    <div class="todo-heading">
+      <div><h2>Tasks</h2><p class="muted" id="task-count">0 remaining · 0 total</p></div>
+      <button class="small-button" id="clear-completed" type="button">Clear completed</button>
+    </div>
+    <form class="todo-form" id="todo-form">
+      <label class="sr-only" for="task">New task</label>
+      <input id="task" name="task" type="text" maxlength="120" placeholder="What needs to get done?" required>
+      <button class="button" type="submit">Add task</button>
+    </form>
+    <p class="status" id="storage-status" role="status" aria-live="polite"></p>
+    <ul class="todo-list" id="todo-list" aria-live="polite"></ul>
+    <p class="muted">Tick a task when it is complete. Delete individual tasks or clear all completed tasks. Data is stored only in this browser.</p>
+  </section>
 </main>
 <footer><div class="container footer-row"><span>Day 5 JavaScript mini project</span><a href="index.html">Back to portfolio</a></div></footer>
-</body></html>
+</body>
+</html>
