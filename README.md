@@ -2,7 +2,7 @@
 
 A beginner front-end learning repository for the **Aesthetix Edu-Tech 5-Day Intensive Training Program on Front-End Web Development**, conducted for students of **KMEA Engineering College**.
 
-This repository contains practical implementations mapped to all five days of the programme using plain HTML, CSS and JavaScript. It includes a personal portfolio, resume exercise, calculator, form validation and an interactive to-do mini project.
+This repository brings together five days of beginner-friendly practical work using plain HTML, CSS and JavaScript. The final set includes a personal portfolio, resume exercise, calculator, client-side form validation and an interactive to-do mini project.
 
 ## Programme overview
 
@@ -12,34 +12,37 @@ This repository contains practical implementations mapped to all five days of th
 | Institution | KMEA Engineering College, Ernakulam |
 | Duration | 5 days |
 | Stated total training hours | 30 hours |
-| Core technologies | HTML, CSS, JavaScript |
+| Core technologies | HTML, CSS and JavaScript |
 
-## Five-day syllabus and practical implementation
+## Five-day practical work
 
 ### Day 1 — Introduction to the Web & HTML fundamentals
-**Topics:** client–server basics, HTML document structure, headings, paragraphs, links, images, lists, tables, forms, input elements and semantic HTML.
+**Concepts:** client–server basics, HTML document structure, headings, paragraphs, links, images, lists, tables, forms, input elements and semantic HTML.
 
-**Practical work:** personal profile portfolio (index.html) and resume-style page (resume.html), using semantic sections, navigation, links, images, structured lists and an accessible HTML table. The calculator page includes a labelled form exercise.
+**Implemented:** personal profile portfolio (`index.html`) and resume-style page (`resume.html`), including semantic sections, navigation, links, images, structured lists and an accessible HTML table.
 
 ### Day 2 — CSS fundamentals & styling
-**Topics:** inline, internal and external CSS, selectors, properties, colours, fonts, text styling, box model and backgrounds.
+**Concepts:** CSS selectors, properties, colours, fonts, text styling, box model, borders and backgrounds.
 
-**Practical work:** shared external stylesheet (styles.css), typography, colours, spacing, borders, backgrounds and reusable styled information cards.
+**Implemented:** shared external stylesheet (`styles.css`), consistent typography, colour system, spacing, buttons, cards and reusable page components.
 
 ### Day 3 — Layout & responsive design
-**Topics:** Flexbox, CSS Grid, positioning, media queries, responsive principles and mobile-first design.
+**Concepts:** Flexbox, CSS Grid, positioning, media queries and responsive design.
 
-**Practical work:** flexible layouts, responsive card grids, two-column sections, a sticky header, mobile breakpoints and collapsible navigation across the pages.
+**Implemented:** responsive card grids, two-column sections, sticky header, mobile breakpoints and collapsible navigation across the pages.
 
 ### Day 4 — JavaScript basics & DOM
-**Topics:** variables, data types, operators, conditions, loops, functions, DOM and event handling.
+**Concepts:** variables, operators, conditions, functions, DOM updates and event handling.
 
-**Practical work:** calculator (calculator.html) with arithmetic operations, clear and backspace; client-side form validation; DOM updates, event listeners and accessible validation feedback (script.js).
+**Implemented:**
+- Calculator with arithmetic precedence, brackets, percentage, clear, backspace and keyboard support.
+- Arithmetic expression parser that avoids `eval()` and `Function()`.
+- Client-side form validation for name, email and message, with accessible error feedback.
 
 ### Day 5 — Mini project & deployment
-**Topics:** integrating HTML, CSS and JavaScript, debugging, basic UI/UX, and hosting introduction using GitHub Pages or Netlify.
+**Concepts:** integrating HTML, CSS and JavaScript, debugging, basic UI/UX and an introduction to hosting with GitHub Pages or Netlify.
 
-**Practical work:** responsive portfolio (index.html) and interactive to-do list (todo.html) with add, complete and delete actions. Browser localStorage retains tasks between visits when storage is enabled.
+**Implemented:** responsive portfolio and an interactive to-do list with add, complete, delete and clear-completed actions. Tasks are stored in browser `localStorage` when storage is available.
 
 ## Project structure
 
@@ -59,7 +62,7 @@ add-on_class_profile/
 
 1. Clone or download this repository.
 2. Open the folder in VS Code or another editor.
-3. Open index.html in a modern browser.
+3. Open `index.html` in a modern browser.
 4. Use the navigation to visit the resume, calculator and to-do pages.
 
 No build tools, frameworks or package installation are required.
@@ -68,17 +71,18 @@ No build tools, frameworks or package installation are required.
 
 [Open the portfolio on GitHub Pages](https://muneeb-pt.github.io/add-on_class_profile/)
 
-If a newly added page is not visible immediately, allow GitHub Pages a few minutes to publish the latest commit, then refresh the site.
+GitHub Pages may take a short time to publish new commits. Refresh the live page after deployment completes.
 
-## Quick manual test checklist
+## Manual testing checklist
 
-- Open each HTML page and check that navigation links work.
-- Resize the browser to mobile width and test the Menu button; press Escape to close it.
-- On the calculator page, try `12 + 8`, clear, backspace and an invalid expression.
-- Submit the form empty, then with valid name, email and message values.
-- On the to-do page, add a task, mark it complete, delete it and refresh to check persistence.
-- If browser storage is blocked, the to-do page displays a storage warning rather than silently failing.
+- Open every HTML page and check all navigation links.
+- Resize the browser to mobile width; test the Menu button and press Escape to close it.
+- On the calculator page, try `12 + 8`, `(4 + 6) * 2`, clear, backspace and division by zero.
+- Use the keyboard for calculator input; Enter calculates, Backspace deletes and Escape clears.
+- Submit the form empty, then test valid name, email and message values.
+- On the to-do page, add a task, mark it complete, delete a task and clear completed tasks.
+- Refresh the to-do page to check whether tasks persist in browser storage.
 
 ## Learning note
 
-The repository contains code implementations of practical tasks mapped to the supplied five-day syllabus. It is a beginner learning project, not a production application. The presence of an implementation documents the code in this repository; it should not be read as proof that every topic was taught or assessed in a classroom session. Use the examples to practise, modify the code and understand how each part works.
+This is a beginner learning repository, not a production application. The code demonstrates practical tasks mapped to the supplied five-day programme; it should not be read as proof that every topic was taught or assessed in a classroom session. Use the examples to practise, modify the code and understand how each part works.
